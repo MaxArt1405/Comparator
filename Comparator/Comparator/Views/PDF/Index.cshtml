@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>View Pdf</h2>
+
+<p>
+    @Html.ActionLink("Add PDFfile", "Create", "PDF", new { id = "linkAddImage" }, null) |
+    @Html.ActionLink("Delete PDFfile", "Delete", "PDF", new { id = "linkAddImage" }, null)
+</p>
+
+@Html.Partial("~/Views/Shared/PDFPartial.cshtml")

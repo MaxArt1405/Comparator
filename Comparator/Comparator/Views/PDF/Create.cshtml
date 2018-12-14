@@ -1,0 +1,28 @@
+﻿@model Comparator.Models.PDFfile
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "PDF", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>File.PDF</legend>
+
+        <div class="editor-label">
+            Upload File
+        </div>
+        <div class="editor-field">
+            <input type="file" id="image" name="image" />
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+    <p>@Html.ActionLink("Go Back", "Index", "PDF")</p>
+}

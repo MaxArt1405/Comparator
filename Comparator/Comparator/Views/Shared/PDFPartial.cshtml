@@ -1,0 +1,24 @@
+﻿@*<div class="col-sm-12">
+    <div class="col-sm-6">
+        <embed class="col-sm-12" src="~/Models/ICC16New.pdf" type="application/pdf" height=800>
+    </div>
+    <div class="col-sm-6">
+        <embed class="col-sm-12" src="~/Models/ICC16Old.pdf" type="application/pdf" height=800>
+    </div>
+</div>*@
+<div class="col-sm-12">
+    <ul id="window">
+        @foreach(var item in Model)
+        {
+            <li>
+                @{ 
+                    var base64 = Convert.ToBase64String(item.Content);
+                    var file = string.Format("data:application/pdf;base64,{0}", base64);
+                }
+                <embed src="@file"/>
+            </li>
+        }
+    </ul>
+</div>
+
+

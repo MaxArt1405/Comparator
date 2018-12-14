@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+@using (Html.BeginForm("Delete", "PDF", FormMethod.Post))
+{
+    <table style="background-color:azure" border="1">
+        <thead style="background-color:gray">
+            <tr>
+                <th>Select</th>
+                <th>file</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.EditorForModel()
+        </tbody>
+    </table>
+    <input type="submit" value="Delete Selected Files" 
+    <p> @Html.ActionLink("Go Back", "Index", "PDF")</p>
+}
