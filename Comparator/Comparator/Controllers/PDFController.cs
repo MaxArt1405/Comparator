@@ -28,27 +28,21 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create(HttpPostedFileBase upload)
         {
-
             String FileExt = Path.GetExtension(upload.FileName).ToUpper();
-            if(FileExt == ".PDF")
+
+            Stream str = upload.InputStream;
+            BinaryReader Breader = new BinaryReader(str);
+            Byte[] Context = Breader.ReadBytes((Int32)str.Length);
+            PDFfile file = new PDFfile
             {
-                Stream str = upload.InputStream;
-                BinaryReader Breader = new BinaryReader(str);
-                Byte[] Context = Breader.ReadBytes((Int32)str.Length);
-                PDFfile file = new PDFfile
-                {
-                    FileName = upload.FileName,
-                    Content = Context
-                };
-                db.Files.Add(file);
-            }
-            else
-            {
-                return View();
-            }
+                FileName = upload.FileName,
+                Content = Context,
+                PDFID = upload.ContentLength
+            };
+            db.Files.Add(file);
             db.SaveChanges();
 
-            return RedirectToAction("Create");
+            return View(file);
         }
         public ActionResult Delete()
         {

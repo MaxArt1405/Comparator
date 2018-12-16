@@ -190,6 +190,7 @@
     <Content Include="Views\Shared\PDFPartial.cshtml" />
     <Content Include="Views\PDF\Create.cshtml" />
     <Content Include="Views\PDF\Delete.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\FilePDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\" />

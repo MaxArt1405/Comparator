@@ -13,9 +13,17 @@
             </tr>
         </thead>
         <tbody>
-            @Html.EditorForModel()
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="PDFId" id="PDFId" value="@item.PDFID" />
+                    </td>
+                    <td>@item.PDFID</td>
+                </tr>
+            }
         </tbody>
     </table>
-    <input type="submit" value="Delete Selected Files" 
+    <input type="submit" value="Delete Selected Files" />
     <p> @Html.ActionLink("Go Back", "Index", "PDF")</p>
 }
