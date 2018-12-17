@@ -51,14 +51,37 @@
         [HttpPost]
         public ActionResult Delete(IEnumerable<int> PDFID)
         {
-            foreach (var id in PDFID)
+            if (PDFID != null)
             {
-                var file = db.Files.Single(p => p.PDFID == id);
-                db.Files.Remove(file);
-            }
+                foreach (var id in PDFID)
+                {
+                    var file = db.Files.Single(p => p.PDFID == id);
+                    db.Files.Remove(file);
+                }
 
-            db.SaveChanges();
+                db.SaveChanges();
+                return RedirectToAction("Delete");
+            }
             return RedirectToAction("Delete");
+        }
+        public ActionResult Show()
+        {
+            return View(db.Files.ToList());
+        }
+        [HttpPost]
+        public ActionResult Show(IEnumerable<int> fileid)
+        {
+            List<PDFfile> files = new List<PDFfile>();
+            if (fileid != null && fileid.Count() <= 2)
+            {
+                foreach (var id in fileid)
+                {
+                    var file = db.Files.Single(p => p.PDFID == id);
+                    files.Add(file);
+                }
+                return View(files);
+            }
+            return RedirectToAction("Index");
         }
     }
 }

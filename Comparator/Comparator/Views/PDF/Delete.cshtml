@@ -3,6 +3,15 @@
 }
 
 <h2>Delete</h2>
+<style type="text/css">
+    table {
+        margin-left: 40%;
+    }
+
+    div {
+        text-align: center;
+    }
+</style>
 @using (Html.BeginForm("Delete", "PDF", FormMethod.Post))
 {
     <table style="background-color:azure" border="1">
@@ -20,6 +29,7 @@
                         <input type="checkbox" name="PDFId" id="PDFId" value="@item.PDFID" />
                     </td>
                     <td>@item.PDFID</td>
+                    <td>@item.FileName</td>
                 </tr>
             }
         </tbody>

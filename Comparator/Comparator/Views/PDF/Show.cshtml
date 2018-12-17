@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<style type="text/css">
+    table {
+        margin-left:40%;
+    }
+    div{
+        text-align:center;
+    }
+</style>
+@using (Html.BeginForm("Show", "PDF", FormMethod.Post))
+{
+    <div>
+        <table style="background-color:azure" border="1">
+            <thead style="background-color:gray">
+                <tr>
+                    <th>Select</th>
+                    <th>file</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="fileid" id="fileid" value="@item.PDFID" />
+                        </td>
+                        <td>@item.PDFID</td>
+                        <td>@item.FileName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <input type="submit" value="Show Selected Files" />
+    <div>
+        @Html.Partial("~/Views/Shared/FilePartial.cshtml")
+    </div>
+    @Html.ActionLink("Go Back", "Index", "PDF")
+}

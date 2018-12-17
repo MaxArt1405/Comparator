@@ -4,25 +4,40 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Creating</h2>
+<style type="text/css">
+    #centerLayer {
+        text-align: center;
+    }
 
+    h2 {
+        text-align: center;
+    }
+    #editor {
+        margin-left:46%;
+    }
+</style>
 @using (Html.BeginForm("Create", "PDF", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
+    <fieldset id="centerLayer">
         <legend>File.PDF</legend>
 
         <div class="editor-label">
             Upload File
         </div>
-        <div class="editor-field">
-            <input type="file" id="upload" name="upload" />
-        </div>
-        <p>
+        <div id="editor">
+            <div class="editor-field">
+                <input type="file" id="upload" name="upload" />
+            </div>
+        </div>  
+        <div>
             <input type="submit" value="Save" />
-        </p>
+        </div>
+        <div>
+            @Html.ActionLink("Go Back", "Index", "PDF")
+        </div>
     </fieldset>
-    <p>@Html.ActionLink("Go Back", "Index", "PDF")</p>
 }
