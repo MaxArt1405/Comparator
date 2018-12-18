@@ -1,9 +1,6 @@
 ﻿@{
     ViewBag.Title = "FilePartial";
 }
-
-<h2>FilePartial</h2>
-
 <div class="col-md-12">
     @foreach (var item in Model)
     {
@@ -16,3 +13,4 @@
         </div>
     }
 </div>
+@Html.ActionLink("Go Back To List", "Show", "PDF")

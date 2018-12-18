@@ -6,10 +6,11 @@
 <h2>Show</h2>
 <style type="text/css">
     table {
-        margin-left:40%;
+        margin-left: 42.5%;
     }
-    div{
-        text-align:center;
+
+    div {
+        text-align: center;
     }
 </style>
 @using (Html.BeginForm("Show", "PDF", FormMethod.Post))
@@ -29,7 +30,6 @@
                         <td>
                             <input type="checkbox" name="fileid" id="fileid" value="@item.PDFID" />
                         </td>
-                        <td>@item.PDFID</td>
                         <td>@item.FileName</td>
                     </tr>
                 }
@@ -39,7 +39,7 @@
 
     <input type="submit" value="Show Selected Files" />
     <div>
-        @Html.Partial("~/Views/Shared/FilePartial.cshtml")
+        @Html.Partial("~/Views/PDF/FilePartial.cshtml")
     </div>
-    @Html.ActionLink("Go Back", "Index", "PDF")
 }
+@Html.ActionLink("Go Back", "Index", "PDF")

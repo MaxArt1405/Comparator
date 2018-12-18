@@ -187,11 +187,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\PDF\Index.cshtml" />
-    <Content Include="Views\Shared\PDFPartial.cshtml" />
     <Content Include="Views\PDF\Create.cshtml" />
     <Content Include="Views\PDF\Delete.cshtml" />
     <Content Include="Views\PDF\Show.cshtml" />
-    <Content Include="Views\Shared\FilePartial.cshtml" />
+    <Content Include="Views\PDF\FilePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\" />

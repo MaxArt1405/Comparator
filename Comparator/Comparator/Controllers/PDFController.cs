@@ -4,8 +4,6 @@
     using Comparator.Models;
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
-    using System.Data.SqlClient;
     using System.IO;
     using System.Linq;
     using System.Web;
@@ -13,17 +11,17 @@
     public class PDFController : Controller
     {
         private PDFContext db = new PDFContext();
-        // GET: PDF
+        private List<PDFfile> files = new List<PDFfile>();
+        [HttpGet]
         public ActionResult Index()
         {
             return View(db.Files.ToList());
         }
-        // GET: PDF/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
-        // POST: PDF/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(HttpPostedFileBase upload)
@@ -44,6 +42,7 @@
 
             return View(file);
         }
+        [HttpGet]
         public ActionResult Delete()
         {
             return View(db.Files.ToList());
@@ -64,14 +63,14 @@
             }
             return RedirectToAction("Delete");
         }
+        [HttpGet]
         public ActionResult Show()
         {
             return View(db.Files.ToList());
         }
         [HttpPost]
         public ActionResult Show(IEnumerable<int> fileid)
-        {
-            List<PDFfile> files = new List<PDFfile>();
+        {         
             if (fileid != null && fileid.Count() <= 2)
             {
                 foreach (var id in fileid)
@@ -81,7 +80,7 @@
                 }
                 return View(files);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Show");
         }
     }
 }
