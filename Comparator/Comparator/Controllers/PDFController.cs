@@ -70,7 +70,8 @@
         }
         [HttpPost]
         public ActionResult Show(IEnumerable<int> fileid)
-        {         
+        {
+            Comparer c = new Comparer();
             if (fileid != null && fileid.Count() <= 2)
             {
                 foreach (var id in fileid)
@@ -78,6 +79,7 @@
                     var file = db.Files.Single(p => p.PDFID == id);
                     files.Add(file);
                 }
+                //c.CompareTwoPDF(files[0].PDFID, files[1].PDFID);
                 return View(files);
             }
             return RedirectToAction("Show");
