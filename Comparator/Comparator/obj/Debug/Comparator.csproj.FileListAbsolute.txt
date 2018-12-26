@@ -505,8 +505,10 @@ C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\bin\Antlr3.Runtime.pdb
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.csprojAssemblyReference.cache
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.csproj.CoreCompileInputs.cache
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.csproj.CopyComplete
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.dll
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.pdb
+C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.csprojAssemblyReference.cache
+C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.Migrations.InitialCreate.resources
+C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.csproj.GenerateResource.cache

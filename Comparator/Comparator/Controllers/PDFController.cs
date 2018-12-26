@@ -2,6 +2,7 @@
 {
     using Comparator.Data;
     using Comparator.Models;
+    using System.Net;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -24,23 +25,23 @@
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(HttpPostedFileBase upload)
+        public ActionResult Create(Uri upload)
         {
-            String FileExt = Path.GetExtension(upload.FileName).ToUpper();
-
-            Stream str = upload.InputStream;
-            BinaryReader Breader = new BinaryReader(str);
-            Byte[] Context = Breader.ReadBytes((Int32)str.Length);
-            PDFfile file = new PDFfile
+            if (upload != null)
             {
-                FileName = upload.FileName,
-                Content = Context,
-                PDFID = upload.ContentLength
-            };
-            db.Files.Add(file);
-            db.SaveChanges();
-
-            return View(file);
+                WebClient client = new WebClient();
+                PDFfile file = new PDFfile()
+                {
+                    FileName = Path.GetFileName(upload.ToString()),
+                    Content = client.DownloadData(upload),
+                    PDFID = upload.LocalPath.Length,
+                    CreateTime = DateTime.Now,
+                };
+                db.Files.Add(file);
+                db.SaveChanges();
+                return View(file);
+            }
+            return View();
         }
         [HttpGet]
         public ActionResult Delete()
@@ -79,7 +80,6 @@
                     var file = db.Files.Single(p => p.PDFID == id);
                     files.Add(file);
                 }
-                //c.CompareTwoPDF(files[0].PDFID, files[1].PDFID);
                 return View(files);
             }
             return RedirectToAction("Show");

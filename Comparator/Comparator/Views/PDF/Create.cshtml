@@ -13,9 +13,7 @@
     h2 {
         text-align: center;
     }
-    #editor {
-        margin-left:47.5%;
-    }
+    
 </style>
 @using (Html.BeginForm("Create", "PDF", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -29,8 +27,8 @@
             Upload File
         </div>
         <div id="editor">
-            <div class="editor-field">
-                <input type="file" id="upload" name="upload" />
+            <div >
+                <input type="url" name="upload" />
             </div>
         </div>  
         <div>

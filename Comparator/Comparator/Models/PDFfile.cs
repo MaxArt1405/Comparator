@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Comparator.Models
 {
@@ -8,5 +9,6 @@ namespace Comparator.Models
         public int PDFID { get; set; }
         public string FileName { get; set; }
         public byte[] Content { get; set; }
+        public DateTime? CreateTime { get; set; }
     }
 }
