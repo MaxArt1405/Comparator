@@ -1,12 +1,10 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Show";
 }
-
 <h2>Show</h2>
 <style type="text/css">
     table {
-        margin-left: 42.5%;
+        margin: auto;
     }
 
     div {
@@ -38,10 +36,6 @@
             </tbody>
         </table>
     </div>
-
     <input type="submit" value="Show Selected Files" />
-    <div>
-        @Html.Partial("~/Views/PDF/FilePartial.cshtml")
-    </div>
 }
 @Html.ActionLink("Go Back", "Index", "PDF")

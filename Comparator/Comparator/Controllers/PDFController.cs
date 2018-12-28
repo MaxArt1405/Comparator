@@ -30,6 +30,7 @@
             if (upload != null)
             {
                 WebClient client = new WebClient();
+                
                 PDFfile file = new PDFfile()
                 {
                     FileName = Path.GetFileName(upload.ToString()),
@@ -41,6 +42,7 @@
                 db.SaveChanges();
                 return View(file);
             }
+            db.SaveChanges();
             return View();
         }
         [HttpGet]
@@ -72,7 +74,6 @@
         [HttpPost]
         public ActionResult Show(IEnumerable<int> fileid)
         {
-            Comparer c = new Comparer();
             if (fileid != null && fileid.Count() <= 2)
             {
                 foreach (var id in fileid)
@@ -80,9 +81,26 @@
                     var file = db.Files.Single(p => p.PDFID == id);
                     files.Add(file);
                 }
-                return View(files);
+                TempData["list"] = files;
+                return RedirectToAction("FilePartial");
             }
             return RedirectToAction("Show");
+        }
+        [HttpGet]
+        public ActionResult FilePartial()
+        {
+            var filesToShow = TempData["list"] as List<PDFfile>;
+            TempData.Keep();
+            return View(filesToShow);
+        }
+        [HttpPost]
+        public ActionResult FilePartial(IEnumerable<int> fileid)
+        {
+            var filesToShow = TempData["list"] as List<PDFfile>;
+            Comparer c = new Comparer();
+            c.CompareTwoPDF(filesToShow[0].PDFID, filesToShow[1].PDFID);
+            TempData.Keep();
+            return View(filesToShow);
         }
     }
 }
