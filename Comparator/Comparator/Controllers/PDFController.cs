@@ -9,6 +9,8 @@
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+    using System.Text;
+
     public class PDFController : Controller
     {
         private PDFContext db = new PDFContext();
@@ -29,15 +31,18 @@
         {
             if (upload != null)
             {
-                WebClient client = new WebClient();
-                
+                WebClient client = new WebClient
+                {
+                    Credentials = new NetworkCredential("call", "111")      
+                };
+
                 PDFfile file = new PDFfile()
                 {
                     FileName = Path.GetFileName(upload.ToString()),
                     Content = client.DownloadData(upload),
                     PDFID = upload.LocalPath.Length,
                     CreateTime = DateTime.Now,
-                };
+                };                         
                 db.Files.Add(file);
                 db.SaveChanges();
                 return View(file);
@@ -98,7 +103,11 @@
         {
             var filesToShow = TempData["list"] as List<PDFfile>;
             Comparer c = new Comparer();
-            c.CompareTwoPDF(filesToShow[0].PDFID, filesToShow[1].PDFID);
+            if(filesToShow.Count() == 2)
+            {
+                c.CompareTwoPDF(filesToShow[0].PDFID, filesToShow[1].PDFID);
+            }
+            
             TempData.Keep();
             return View(filesToShow);
         }

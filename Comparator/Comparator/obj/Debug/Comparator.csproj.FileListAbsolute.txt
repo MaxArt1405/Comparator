@@ -509,6 +509,6 @@ C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.cs
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.csproj.CopyComplete
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.dll
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.pdb
-C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.csprojAssemblyReference.cache
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.Migrations.InitialCreate.resources
 C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.csproj.GenerateResource.cache
+C:\Users\MaximK\Desktop\Comparator\Comparator\Comparator\obj\Debug\Comparator.csprojAssemblyReference.cache
